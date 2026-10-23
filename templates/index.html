@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Analyze · RepoPredict{% endblock %}{% block content %}
+<div class="row justify-content-center"><div class="col-lg-8"><h1 class="h2">Analyze a repository</h1><p class="muted">Enter a GitHub repository URL or owner/repository. You must have access while signed in.</p>
+<div class="card p-4"><form method="post" action="{{ url_for('analyze') }}"><label class="form-label" for="repo">GitHub repository</label><input class="form-control form-control-lg" id="repo" name="repo" placeholder="https://github.com/owner/repository" required><button class="btn btn-primary btn-lg mt-3">Fetch history and analyze</button></form></div>
+{% if error %}<div class="alert alert-danger mt-3">{{ error }}</div>{% endif %}
+<p class="muted small mt-3">The demo reviews the latest five commits and ten pull requests using GitHub’s API.</p></div></div>{% endblock %}
